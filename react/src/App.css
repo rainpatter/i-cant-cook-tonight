@@ -1,0 +1,9 @@
+h1 {
+  color: red
+}
+
+.page-middle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}

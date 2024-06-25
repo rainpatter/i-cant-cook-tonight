@@ -1,0 +1,37 @@
+
+    {
+        "ingredients": [ {"name": "carbs",
+        "items": [
+            "Rice", "Pasta", "Bread", "Quinoa", "Barley", "Oat", "Couscous", "Polenta", "Buckwheat", "Farro",
+             "Tortilla", "Noodles"
+        ]},
+        {"name": "veg",
+        "items": [
+            "Onion", "Garlic", "Tomato", "Potato", "Carrot", "Bell pepper", "Spinach", "Broccoli", "Cauliflower", "Cabbage",
+            "Green beans", "Peas", "Zucchini", "Eggplant", "Corn", "Mushrooms", "Kale", "Brussels sprouts", "Celery", "Asparagus",
+            "Radish", "Leek", "Pumpkin", "Sweet potato", "Beetroot", "Artichoke", "Turnip", "Okra", "Swiss chard", "Watercress",
+            "Bok choy", "Fennel", "Rutabaga", "Daikon", "Jicama", "Yuca", "Snow peas", "Bamboo shoots", "Peppers", "Shallots"
+        ]},
+        {"name": "fruit",
+        "items":[
+            "Apple", "Banana", "Orange", "Lemon", "Lime", "Grapefruit", "Mango", "Pineapple", "Strawberry", "Blueberry",
+            "Raspberry", "Blackberry", "Peach", "Plum", "Cherry", "Pear", "Kiwi", "Cranberry", "Apricot", "Fig"
+        ]},
+        {"name": "proteins",
+        "items":[
+            "Chicken", "Beef", "Pork", "Lamb", "Turkey", "Duck", "Fish", "Shrimp", "Salmon", "Tuna",
+            "Eggs", "Tofu", "Beans", "Chickpeas", "Lentils"
+        ]},
+        {"name": "fridge",
+        "items": ["Milk", "Eggs", "Butter", "Cheese", "Yoghurt", "Cream", "Mayonnaise", "Mustard"]},
+        {"name": "pantry",
+        "items":[
+            "Honey", "Vinegar",
+            "Soy sauce", "Worcestershire sauce", "Tomato paste", "Canned tomatoes", "Broth", "Coconut milk", "Peanut butter",
+            "Jam", "Mustard", "Mayonnaise", "Ketchup", "Hot sauce", "Pickles", "Olives", "Breadcrumbs",
+            "Baking powder", "Baking soda", "Yeast"
+    
+
+        ]}
+    ]
+    }
