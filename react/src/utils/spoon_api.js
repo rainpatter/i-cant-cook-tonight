@@ -14,11 +14,10 @@ export async function getIngredients(array) {
   return recipes;
 }
 
-export async function analyseQuery() {
-  let searchString = "soy sauce with rice and egg";
+export async function analyseQuery(str) {
 
   let searchData = {
-    searchIngredients: searchString.split(" ").join("+"),
+    searchIngredients: str.split('[,\s]').join("+"),
   };
 
   let res = await fetch("ingredients/analyse", {

@@ -13,9 +13,6 @@ export default function Main({
 }) {
   return (
     <>
-      <section className="page-header">
-        <Header />
-      </section>
       <section className="page-middle">
         <div>
           <IngredientPicker
@@ -39,6 +36,7 @@ export default function Main({
           recipes={recipes}
           setRecipes={setRecipes}
           chosenIngredients={chosenIngredients}
+          setChosenIngredients={setChosenIngredients}
         />
       </section>
     </>

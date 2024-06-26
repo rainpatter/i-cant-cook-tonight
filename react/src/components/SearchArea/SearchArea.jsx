@@ -9,12 +9,11 @@ export default function SearchArea({
 
   function handleChange(evt) {
     let input = evt.target.value;
-    console.log(input);
-    setText(evt.target.value);
+    setText(input);
   }
 
   async function handleClick() {
-    let searchIngredients = await analyseQuery();
+    let searchIngredients = await analyseQuery(text);
     let ingredientNames = searchIngredients.ingredients.map(
       (ingredient) => ingredient.name
     );
@@ -33,6 +32,7 @@ export default function SearchArea({
           onChange={handleChange}
           name="search-ingredients-bar"
         />
+        
         <button onClick={handleClick}>Search for ingredients</button>
       </div>
     </>

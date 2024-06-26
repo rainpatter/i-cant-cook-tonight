@@ -5,6 +5,7 @@ export default function LoadRecipes({
   recipes,
   setRecipes,
   chosenIngredients,
+  setChosenIngredients,
 }) {
   async function handleClick() {
     console.log(chosenIngredients);
@@ -12,22 +13,31 @@ export default function LoadRecipes({
     setHasSearched(true);
 
     let recipeObj = await getIngredients(chosenIngredients);
-    console.log(recipeObj);
+
     let recipeArray = recipeObj.results;
-    console.log(recipeArray);
 
     setRecipes([...recipeArray, ...recipes]);
+  }
+
+  function handleDelete(index) {
+    let filteredIngredients = chosenIngredients.filter(
+      (ing, idx) => idx != index
+    );
+    setChosenIngredients([...filteredIngredients]);
   }
 
   return (
     <section>
       <h3>you've chosen...</h3>
       <div>
-        {chosenIngredients.map((ing) => (
-          <div>{ing}</div>
+        {chosenIngredients.map((ing, idx) => (
+          <div>
+            {ing}
+            <button onClick={() => handleDelete(idx)}>x</button>
+          </div>
         ))}
       </div>
-      <button onClick={handleClick}>Search</button>
+      <button className="search-button" onClick={handleClick}>Search</button>
     </section>
   );
 }

@@ -1,33 +1,46 @@
+
+import Dashboard from "./pages/Dashboard/Dashboard";
+
+import { Routes, Route, Link} from 'react-router-dom'
+import Profile from "./pages/Profile/Profile";
+import Login from "./components/Login/Login";
+import Header from "./components/Header/Header";
 import { useState } from "react";
-import Main from "./pages/Main/Main";
-import Recipes from "./pages/Recipes/Recipes";
+import Logout from "./components/Logout/Logout";
+
 
 function App() {
-  let [hasSearched, setHasSearched] = useState(false);
-  let [recipes, setRecipes] = useState([]);
-  let [chosenIngredients, setChosenIngredients] = useState([]);
-  let [currentRecipe, setCurrentRecipe] = useState({});
+  const [ user, setUser ] = useState(null)
+  const [ userId, setUserId ] = useState(null)
+
+  function onLogin(user) {
+    console.log('logging in')
+    setUser(user)
+    console.log(user)
+  }
+
+  function onLogout() {
+    setUser(null)
+    localStorage.clear()
+  }
 
   return (
     <>
-      {!hasSearched ? (
-        <Main
-          setHasSearched={setHasSearched}
-          recipes={recipes}
-          setRecipes={setRecipes}
-          chosenIngredients={chosenIngredients}
-          setChosenIngredients={setChosenIngredients}
-        />
-      ) : (
-        <Recipes
-          setHasSearched={setHasSearched}
-          recipes={recipes}
-          setRecipes={setRecipes}
-          setChosenIngredients={setChosenIngredients}
-          currentRecipe={currentRecipe}
-          setCurrentRecipe={setCurrentRecipe}
-        />
-      )}
+        <header>
+            <Header />
+            { user ?
+            <><h3>{user.userInfo}</h3><Logout onLogout={onLogout}/></>
+            :
+             < Login onLogin={onLogin} setUserId={setUserId}/>
+            }
+        </header>
+        <nav>
+          <Link to='/profile/:id'>Profile</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={< Dashboard userId={userId} user={user}/>} />
+          <Route path="/profile/" element={<Profile />} />
+        </Routes>
     </>
   );
 }

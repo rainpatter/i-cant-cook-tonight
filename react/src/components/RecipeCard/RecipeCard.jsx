@@ -28,6 +28,9 @@ export default function RecipeCard({
             <h1>{recipe.title}</h1>
             <img src={recipe.image} alt="" />
             <p>Ready in {recipe.readyInMinutes} minutes</p>
+            <p>{recipe.vegetarian ? 'vegetarian' : ''}</p>
+            <p>{recipe.vegan ? 'vegan' : ''}</p>
+            <p>{recipe.glutenFree ? 'GF' : ''}</p>
             <p>uses</p>{" "}
             {recipe.usedIngredients.map((ingredient) => (
               <p>{ingredient.name}</p>

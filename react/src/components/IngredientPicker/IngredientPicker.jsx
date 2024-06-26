@@ -31,12 +31,12 @@ export default function IngredientPicker({
             <div className="ingredients-list">
               {visible.includes(ingredient.name)
                 ? ingredient.items.map((item) => (
-                    <button
-                      className="ingredient-button"
-                      onClick={() => addIngredient(item)}
-                    >
-                      {item}
-                    </button>
+                        <button
+                        className="ingredient-button"
+                        onClick={() => addIngredient(item)}
+                        >
+                        {item}
+                        </button>
                   ))
                 : ingredient.items.slice(1, 5).map((item) => (
                     <button

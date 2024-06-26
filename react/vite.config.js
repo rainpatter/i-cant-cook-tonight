@@ -6,7 +6,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/ingredients' : 'http://localhost:4040'
+      '/ingredients' : 'http://localhost:4040',
+      '/login': 'http://localhost:4040',
+      '/api': 'http://localhost:4040'
     }
   }
 })
