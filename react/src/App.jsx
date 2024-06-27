@@ -7,7 +7,7 @@ import Login from "./components/Login/Login";
 import Header from "./components/Header/Header";
 import { useState } from "react";
 import Logout from "./components/Logout/Logout";
-
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   const [ user, setUser ] = useState(null)
@@ -22,24 +22,35 @@ function App() {
   function onLogout() {
     setUser(null)
     localStorage.clear()
+    setUserId(null)
   }
+
+
+    const navigate = useNavigate()
+    function handleClick() {
+      navigate(`/profile/${userId}`)
+  
+    }
+  
+
+ 
 
   return (
     <>
         <header>
             <Header />
             { user ?
-            <><h3>{user.userInfo}</h3><Logout onLogout={onLogout}/></>
+            <><><h3>{user.userInfo}</h3><Logout onLogout={onLogout} /></><button onClick={handleClick}>Profile</button></>
             :
              < Login onLogin={onLogin} setUserId={setUserId}/>
             }
         </header>
         <nav>
-          <Link to='/profile/:id'>Profile</Link>
+        
         </nav>
         <Routes>
           <Route path="/" element={< Dashboard userId={userId} user={user}/>} />
-          <Route path="/profile/" element={<Profile />} />
+          <Route path="/profile/:id" element={ <Profile userId={userId}/>}/>
         </Routes>
     </>
   );

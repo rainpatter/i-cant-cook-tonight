@@ -1,12 +1,11 @@
-const db = require('../db')
+const db = require("../db");
 
 async function addRecipe(recipeObj, userId) {
-
-
-    let sql = `
+  let sql = `
         INSERT INTO saved_recipes(
             user_id,
             spoonacular_dish_id,
+            title,
             image,
             vegetarian,
             vegan,
@@ -23,19 +22,29 @@ async function addRecipe(recipeObj, userId) {
             $5,
             $6,
             $7,
-            $8
+            $8,
+            $9
         )
         RETURNING id;
-    `
+    `;
 
-    let result = await db.query(sql, [userId, recipeObj.id, recipeObj.image, recipeObj.vegetarian, recipeObj.vegan, recipeObj.glutenFree, recipeObj.readyInMinutes, recipeObj.sourceUrl])
-    console.log(result.rows[0].id)
+  let result = await db.query(sql, [
+    userId,
+    recipeObj.id,
+    recipeObj.title,
+    recipeObj.image,
+    recipeObj.vegetarian,
+    recipeObj.vegan,
+    recipeObj.glutenFree,
+    recipeObj.readyInMinutes,
+    recipeObj.sourceUrl,
+  ]);
+  console.log(result.rows[0].id);
 
-    let recipeId = result.rows[0].id
+  let recipeId = result.rows[0].id;
 
-    let ingredientsSql = `
-        INSERT INTO recipe_ingredients(
-            recipe_id, 
+  let ingredientsSql = `
+        INSERT INTO recipe_ingredients( 
             metric_amount,
             metric_unit_long,
             original_name
@@ -43,61 +52,126 @@ async function addRecipe(recipeObj, userId) {
         VALUES (
         $1,
         $2,
-        $3,
-        $4
+        $3
         )
-        RETURNING *;
+        RETURNING id;
         ;
-      `
-
-      for (ingredient of recipeObj.extendedIngredients) {
-
-        let result = await db.query(
-            ingredientsSql, [
-                recipeId,
-                ingredient.measures.metric.amount,
-                ingredient.measures.metric.unitLong,
-                ingredient.originalName
-            ]
-        )
-        console.log(result.rows[0])
-
-      }
+      `;
     
-    let stepsSql = `
-        INSERT INTO recipe_steps(
-            recipe_id, 
+      let ingJoinSql = `
+      INSERT INTO 
+      recipe_ingredients_join(
+        recipe_id,
+        ingredient_id
+      )
+        VALUES
+        (
+        $1, $2
+        )
+    RETURNING *;
+    `
+
+  for (ingredient of recipeObj.extendedIngredients) {
+    let result = await db.query(ingredientsSql, [
+      ingredient.measures.metric.amount,
+      ingredient.measures.metric.unitLong,
+      ingredient.originalName,
+    ]);
+
+    let ingredientId  = result.rows[0].id
+    let secondRes = await db.query(ingJoinSql, [
+        recipeId, ingredientId
+    ]
+
+    )
+    console.log(secondRes.rows[0])
+    
+  }
+
+  
+
+  let stepsSql = `
+        INSERT INTO recipe_steps( 
             step_number,
             step_content
 
         )
         VALUES (
         $1,
-        $2,
-        $3
+        $2
         )
-        RETURNING *
+        RETURNING id
         ;
+    `;
+
+    let stepJoinSql = `
+      INSERT INTO 
+      recipe_steps_join(
+        recipe_id,
+        step_id
+      )
+        VALUES
+        (
+        $1, $2
+        )
+    RETURNING *;
     `
 
-    for (step of recipeObj.analyzedInstructions[0].steps) {
+  for (step of recipeObj.analyzedInstructions[0].steps) {
+    let stepsResult = await db.query(stepsSql, [step.number, step.step]);
 
-        let result = await db.query(stepsSql, [
-            recipeId,
-            step.number,
-            step.step
-        ])
+    let stepId = stepsResult.rows[0].id
+    let secondRes = await db.query(stepJoinSql, [
+        recipeId, stepId
+    ])
 
-        console.log(result.rows[0])
+    console.log(secondRes)
+  }
 
-    }
+}
 
-    db.end()
+async function getRecipesByUserId(userId) {
+  let sql = `
+    SELECT json_build_object(
+            'id', id,
+            'userId', user_id,
+            'title', title,
+            'spoonacularId', spoonacular_dish_id,
+            'image', image,
+            'vegetarian', vegetarian,
+            'vegan', vegan,
+            'glutenFree', gluten_free,
+            'readyInMinutes', ready_in_minutes,
+            'sourceUrl', source_url,
+            'ingredients', (
+            SELECT json_agg(json_build_object(
+            'metricAmount', recipe_ingredients.metric_amount,
+            'unitLong', recipe_ingredients.metric_unit_long,
+            'originalName', recipe_ingredients.original_name
+            ))
+            FROM recipe_ingredients_join JOIN 
+            recipe_ingredients ON ingredient_id = recipe_ingredients.id
+            WHERE recipe_id=saved_recipes.id
+            ),
+						'steps', (
+              SELECT json_agg(json_build_object(
+              'stepNumber', step_number,
+                'stepContent', step_content
+              ))
+              FROM recipe_steps_join JOIN
+              recipe_steps ON step_id = recipe_steps.id
+              WHERE recipe_id=saved_recipes.id)
+)
+        FROM saved_recipes
+        WHERE user_id = $1
+    ;`
 
+  return db.query(sql, [userId]).then((result) => result.rows);
 }
 
 const Recipe = {
-    addRecipe
-}
+  addRecipe,
+  getRecipesByUserId,
+};
 
-module.exports = Recipe
+module.exports = Recipe;
