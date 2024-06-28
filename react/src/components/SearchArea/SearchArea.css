@@ -1,0 +1,23 @@
+
+.ingredient-form {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.ingredient-form > * {
+    margin: 5px;
+    padding: 5px
+}
+
+textarea {
+    font-size: 1rem;
+    font-family: sans-serif;
+    color: gray;
+}
+
+textarea label {
+    text-align: center;
+}

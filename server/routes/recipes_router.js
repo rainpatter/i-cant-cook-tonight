@@ -16,7 +16,6 @@ router.get('/api/recipes/:userid', (req, res) => {
 
     let userId = req.params.userid
     Recipe.getRecipesByUserId(userId).then(data => res.status(200).json(data))
-    
 
 })
 

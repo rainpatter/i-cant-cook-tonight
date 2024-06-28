@@ -57,8 +57,8 @@ async function addRecipe(recipeObj, userId) {
         RETURNING id;
         ;
       `;
-    
-      let ingJoinSql = `
+
+  let ingJoinSql = `
       INSERT INTO 
       recipe_ingredients_join(
         recipe_id,
@@ -69,7 +69,7 @@ async function addRecipe(recipeObj, userId) {
         $1, $2
         )
     RETURNING *;
-    `
+    `;
 
   for (ingredient of recipeObj.extendedIngredients) {
     let result = await db.query(ingredientsSql, [
@@ -78,17 +78,10 @@ async function addRecipe(recipeObj, userId) {
       ingredient.originalName,
     ]);
 
-    let ingredientId  = result.rows[0].id
-    let secondRes = await db.query(ingJoinSql, [
-        recipeId, ingredientId
-    ]
-
-    )
-    console.log(secondRes.rows[0])
-    
+    let ingredientId = result.rows[0].id;
+    let secondRes = await db.query(ingJoinSql, [recipeId, ingredientId]);
+    console.log(secondRes.rows);
   }
-
-  
 
   let stepsSql = `
         INSERT INTO recipe_steps( 
@@ -104,7 +97,7 @@ async function addRecipe(recipeObj, userId) {
         ;
     `;
 
-    let stepJoinSql = `
+  let stepJoinSql = `
       INSERT INTO 
       recipe_steps_join(
         recipe_id,
@@ -115,19 +108,16 @@ async function addRecipe(recipeObj, userId) {
         $1, $2
         )
     RETURNING *;
-    `
+    `;
 
   for (step of recipeObj.analyzedInstructions[0].steps) {
     let stepsResult = await db.query(stepsSql, [step.number, step.step]);
 
-    let stepId = stepsResult.rows[0].id
-    let secondRes = await db.query(stepJoinSql, [
-        recipeId, stepId
-    ])
+    let stepId = stepsResult.rows[0].id;
+    let secondRes = await db.query(stepJoinSql, [recipeId, stepId]);
 
-    console.log(secondRes)
+    console.log(secondRes);
   }
-
 }
 
 async function getRecipesByUserId(userId) {
@@ -164,7 +154,7 @@ async function getRecipesByUserId(userId) {
 )
         FROM saved_recipes
         WHERE user_id = $1
-    ;`
+    ;`;
 
   return db.query(sql, [userId]).then((result) => result.rows);
 }

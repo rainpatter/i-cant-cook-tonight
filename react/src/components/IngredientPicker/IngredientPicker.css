@@ -1,0 +1,24 @@
+
+.ingredient-button {
+    margin: 1px;
+    font-size: 1rem;
+}
+
+.ingredient-div h1 {
+    font-size: 1.2rem;
+    
+}
+
+.ingredient-button:hover {
+    cursor: pointer
+}
+
+.ingredient-list {
+    display:flex;
+
+}
+
+
+.ingredient-display, .ingredient-display-off {
+    font-size: 1.2rem;
+}

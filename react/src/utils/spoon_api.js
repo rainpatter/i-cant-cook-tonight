@@ -15,9 +15,8 @@ export async function getIngredients(array) {
 }
 
 export async function analyseQuery(str) {
-
   let searchData = {
-    searchIngredients: str.split('[,\s]').join("+"),
+    searchIngredients: str.split("/,\s*/").join("+"),
   };
 
   let res = await fetch("ingredients/analyse", {

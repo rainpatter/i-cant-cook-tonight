@@ -1,13 +1,22 @@
 import { useState } from "react";
 import ingredientData from "../../../public/ingredient_data.json";
 
+import './IngredientPicker.css'
+import { useEffect } from "react";
+
 export default function IngredientPicker({
   chosenIngredients,
   setChosenIngredients,
+  allIngredients,
+  setAllIngredients
 }) {
   let [visible, setVisible] = useState([]);
-
-  let { ingredients } = ingredientData;
+  
+  
+  useEffect(()=> {
+    let { ingredients } = ingredientData;
+    setAllIngredients([... ingredients])
+  }, [])
 
   function handleClick(cat) {
     setVisible([...visible, cat]);
@@ -22,23 +31,25 @@ export default function IngredientPicker({
     setChosenIngredients([...chosenIngredients, clickedItem]);
   }
 
+  
+
   return (
     <>
-      {ingredients.map((ingredient) => (
+      {allIngredients.map((ingredient) => (
         <>
           <div className="ingredient-div">
             <h1>{ingredient.name}</h1>
             <div className="ingredients-list">
               {visible.includes(ingredient.name)
                 ? ingredient.items.map((item) => (
-                        <button
-                        className="ingredient-button"
-                        onClick={() => addIngredient(item)}
-                        >
-                        {item}
-                        </button>
+                    <button
+                      className="ingredient-button"
+                      onClick={() => addIngredient(item)}
+                    >
+                      {item}
+                    </button>
                   ))
-                : ingredient.items.slice(1, 5).map((item) => (
+                : ingredient.items.slice(1, 15).map((item) => (
                     <button
                       className="ingredient-button"
                       onClick={() => addIngredient(item)}

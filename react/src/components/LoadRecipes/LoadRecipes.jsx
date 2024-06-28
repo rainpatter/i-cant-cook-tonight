@@ -1,4 +1,6 @@
 import { getIngredients } from "../../utils/spoon_api";
+import './LoadRecipes.css'
+import { Link } from 'react-router-dom'
 
 export default function LoadRecipes({
   setHasSearched,
@@ -27,17 +29,27 @@ export default function LoadRecipes({
   }
 
   return (
-    <section>
-      <h3>you've chosen...</h3>
-      <div>
+    <div className="load-recipes-search-wrapper">
+        {chosenIngredients.length != 0 ?
+            <div className="search-text-div">
+      <span>showing your ingredients...</span>
+      </div>:<div className="search-text-div">
+      <span>choose some ingredients</span>
+      </div>}
+      <div className='load-ingredients'>
         {chosenIngredients.map((ing, idx) => (
-          <div>
-            {ing}
+          <div className="load-ingredient-button">
+            <span onClick={() => handleDelete(idx)}>{ing}</span>
             <button onClick={() => handleDelete(idx)}>x</button>
           </div>
+          
         ))}
       </div>
-      <button className="search-button" onClick={handleClick}>Search</button>
-    </section>
+      <div className="search-button-wrapper">
+        <Link to='/recipes' onClick={handleClick}>
+            Search for recipes
+        </Link>
+        </div>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
-import * as RecipeApi from '../../utils/recipes_api'
+import * as RecipeApi from "../../utils/recipes_api";
 
 export default function Recipes({
   setHasSearched,
@@ -10,7 +10,7 @@ export default function Recipes({
   currentRecipe,
   setCurrentRecipe,
   userId,
-  user
+  user,
 }) {
   let [isShowingSingleRecipe, setShowingRecipe] = useState(false);
 
@@ -19,10 +19,10 @@ export default function Recipes({
   }
 
   function handleClick() {
-    RecipeApi.saveRecipe([currentRecipe, userId])
+    RecipeApi.saveRecipe([currentRecipe, userId]);
   }
 
-  console.log(currentRecipe)
+  console.log(currentRecipe);
 
   return (
     <>
@@ -44,7 +44,10 @@ export default function Recipes({
             <p>servings: {currentRecipe.servings}</p>
             <h1>ingredients</h1>
             {currentRecipe.extendedIngredients.map((ingredient) => (
-              <p>{ingredient.measures.metric.amount} {ingredient.measures.metric.unitLong} {ingredient.originalName} </p>
+              <p>
+                {ingredient.measures.metric.amount}{" "}
+                {ingredient.measures.metric.unitLong} {ingredient.originalName}{" "}
+              </p>
             ))}
           </div>
           <div className="recipe-instructions">
@@ -53,9 +56,11 @@ export default function Recipes({
               <p>{instruction.step}</p>
             ))}
           </div>
-          <p><a href={currentRecipe.sourceUrl}>link to original recipe</a></p>
+          <p>
+            <a href={currentRecipe.sourceUrl}>link to original recipe</a>
+          </p>
           <div className="user-features">
-            {user ? <button onClick={handleClick}>save to recipes</button> : ''}
+            {user ? <button onClick={handleClick}>save to recipes</button> : ""}
             <p>was this easy?</p>
           </div>
         </div>

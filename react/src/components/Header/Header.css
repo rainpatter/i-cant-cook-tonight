@@ -1,0 +1,20 @@
+.header-wrapper {
+    height: 400px;
+    display: flex;
+    background: url('/home/georgia/seb/projects/icantcooktonight/react/public/mushrooms-8058299_1920.jpg');
+    background-size: cover;
+}
+
+.header-wrapper > h1 {
+    text-align: center;
+    margin: auto;
+    font-size: 4rem;
+}
+
+@media (max-width: 500px) {
+    .header-wrapper > h1 {
+        text-align: center;
+        margin: auto;
+        font-size: 2rem;
+    }
+}

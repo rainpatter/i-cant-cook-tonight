@@ -1,0 +1,38 @@
+
+.main-top {
+    margin: auto;
+   
+}
+
+.main-lower {
+   
+    justify-content: center;
+    margin: auto;
+}
+
+.ingredient-picker {
+    width: 50%;
+}
+
+.main-wrapper { 
+    margin: auto;
+    width: 70%
+}
+
+.main-lower {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1100px) {
+    .main-lower {
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+
+.prompt {
+    text-align: center;
+}
+

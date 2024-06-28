@@ -8,5 +8,8 @@ export async function saveRecipe(array) {
   
 
 export async function getRecipesForUser(userId) {
-    fetch(`/`)
+    let res = await fetch(`/api/recipes/${userId}`)
+    let recipes = await res.json()
+
+    return recipes
 }

@@ -1,0 +1,54 @@
+.load-recipes-search-wrapper {
+    margin: auto;
+    width: 60%;
+    border: red solid 1px;
+
+}
+
+.search-text-div {
+   background-color: green;
+   padding: 10px
+}
+
+.search-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.load-ingredients{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.load-ingredients > div {
+    padding: 0 5px 0 5px;
+}
+
+.load-ingredient-button {
+    border: 1px red solid;
+    padding: 10px;
+    margin: 5px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+}
+
+.load-ingredient-button:hover {
+    cursor: pointer;
+}
+
+.load-ingredient-button > button {
+    background-color: aqua;
+    border: none;
+    padding: 5px;
+    display: inline;
+}
+
+.load-ingredient-button > button:hover {
+    cursor: pointer;
+}
+
+.search-button {
+    font-size: 20px;
+}

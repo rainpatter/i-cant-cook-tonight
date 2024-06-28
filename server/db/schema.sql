@@ -51,10 +51,3 @@ CREATE TABLE recipe_steps_join(
 
 );
 
---     SELECT * FROM saved_recipes
-    -- RIGHT JOIN recipe_ingredients ON recipe_ingredients.recipe_id = saved_recipes.id 
-    -- RIGHT JOIN recipe_steps ON
-    -- recipe_steps.recipe_id = saved_recipes.id
-    -- WHERE user_id = $1;
-
--- SELECT CONCAT_WS(' ',metric_amount, metric_unit_long, original_name) AS ingredient_full FROM recipe_ingredients;
