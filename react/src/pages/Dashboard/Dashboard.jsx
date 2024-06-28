@@ -1,21 +1,18 @@
 
-import Recipes from "../Recipes/Recipes";
 
 import IngredientPicker from "../../components/IngredientPicker/IngredientPicker";
 import SearchArea from "../../components/SearchArea/SearchArea";
 import LoadRecipes from "../../components/LoadRecipes/LoadRecipes";
-import { useState } from "react";
+import './Dashboard.css'
 
 
 export default function Dashboard({setHasSearched, recipes, setRecipes, chosenIngredients, setChosenIngredients, allIngredients, setAllIngredients}) {
   
+    
 
   return (
     <>
-    <div className="dashboard-wrapper">
-      
-        <div className="main-wrapper">
-        <section className="main-top">
+        <section className="load-recipes">
             <LoadRecipes
             setHasSearched={setHasSearched}
             recipes={recipes}
@@ -24,7 +21,16 @@ export default function Dashboard({setHasSearched, recipes, setRecipes, chosenIn
             setChosenIngredients={setChosenIngredients}
             />
         </section>
-        <section className="main-middle">
+            <section className="ingredient-picker">
+                
+                <IngredientPicker
+                    chosenIngredients={chosenIngredients}
+                    setChosenIngredients={setChosenIngredients}
+                    allIngredients={allIngredients}
+                    setAllIngredients={setAllIngredients}
+                />
+        </section>
+        <section className="search-area">
             <SearchArea
                 setHasSearched={setHasSearched}
                 recipes={recipes}
@@ -35,22 +41,6 @@ export default function Dashboard({setHasSearched, recipes, setRecipes, chosenIn
                 setAllIngredients={setAllIngredients}
             />
             </section>
-            <div className="prompt">
-            choose some...
-            </div>
-            <section className="main-lower">
-            
-                <IngredientPicker
-                    chosenIngredients={chosenIngredients}
-                    setChosenIngredients={setChosenIngredients}
-                    allIngredients={allIngredients}
-                    setAllIngredients={setAllIngredients}
-                />
-            
-        </section>
-        </div>
-      
-      </div>
     </>
     
   );

@@ -1,0 +1,27 @@
+.single-recipe-div {
+    margin: 20px auto;
+    overflow:visible;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    text-align: center;
+    padding: 40px;
+    width: 60%;
+}
+
+.save-button {
+    font-size: 40px;
+    border-radius: 5%;
+    border: 1px solid white;
+    background-color: black;
+}
+
+@media (max-width: 600px) {
+    .single-recipe-div {
+        width: 80%;
+    }
+
+    .single-recipe-div h1 {
+        font-size: 1.4rem;
+    }
+    
+}

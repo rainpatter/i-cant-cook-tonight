@@ -35,48 +35,49 @@ function App() {
     navigate(`/profile/${userId}`);
   }
 
-  function clickHandler() {
-    setHasSearched(false)
-  }
+  
 
   return (
     <>
       <header>
         <Header />
+        
       </header>
       <nav>
         {user ? (
           <>
             <>
-              <h3>{user.userInfo}</h3>
+              <h3 onClick={handleClick}>saved recipes</h3>
               <Logout onLogout={onLogout} />
             </>
-            <button onClick={handleClick}>Profile</button>
+           
           </>
         ) : (
           <Login onLogin={onLogin} setUserId={setUserId} />
         )}
-        <Link to="/" onClick={clickHandler} >Home</Link>
+       
       </nav>
-      <Routes>
-        <Route path="/" element={<Dashboard userId={userId} user={user} setHasSearched={setHasSearched}
-                recipes={recipes}
-                setRecipes={setRecipes}
-                chosenIngredients={chosenIngredients}
-                setChosenIngredients={setChosenIngredients}
-                allIngredients={allIngredients}
-                setAllIngredients={setAllIngredients} 
-                hasSearched={hasSearched}/>} />
-        {user && (
-          <Route path="/profile/:id" element={<Profile userId={userId} />} />
-        )}
-        <Route path="/recipes" element={<Recipes userId={userId} user={user} setHasSearched={setHasSearched}
-          recipes={recipes}
-          setRecipes={setRecipes}
-          setChosenIngredients={setChosenIngredients}
-          currentRecipe={currentRecipe}
-          setCurrentRecipe={setCurrentRecipe}/>}/>
-      </Routes>
+      <div className="site-wrapper">
+        <Routes>
+          <Route path="/" element={<Dashboard userId={userId} user={user} setHasSearched={setHasSearched}
+                  recipes={recipes}
+                  setRecipes={setRecipes}
+                  chosenIngredients={chosenIngredients}
+                  setChosenIngredients={setChosenIngredients}
+                  allIngredients={allIngredients}
+                  setAllIngredients={setAllIngredients} 
+                  hasSearched={hasSearched}/>} />
+          {user && (
+            <Route path="/profile/:id" element={<Profile userId={userId} />} />
+          )}
+          <Route path="/recipes" element={<Recipes userId={userId} user={user} setHasSearched={setHasSearched}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            setChosenIngredients={setChosenIngredients}
+            currentRecipe={currentRecipe}
+            setCurrentRecipe={setCurrentRecipe}/>}/>
+        </Routes>
+        </div>
     </>
   );
 }

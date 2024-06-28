@@ -11,7 +11,7 @@ router.post("/ingredients/find", (req, res) => {
   let ingredientsString = ingredients.join(",+");
 
   fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsString}&number=3&apiKey=${apiKey}&addRecipeInformation=true&addRecipeInstructions=true&sort=min-missing-ingredients&fillIngredients=true`
+    `https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsString}&number=10&apiKey=${apiKey}&addRecipeInformation=true&addRecipeInstructions=true&sort=min-missing-ingredients&fillIngredients=true`
   )
     .then((res) => res.json())
     .then((result) => res.status(200).json(result));

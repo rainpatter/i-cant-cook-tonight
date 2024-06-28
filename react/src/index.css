@@ -1,7 +1,8 @@
-* {
+/* * {
   border: red 1px solid;
-}
+} */
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
 html, body {
   margin: 0;
@@ -10,36 +11,51 @@ html, body {
   font-size: 20px;
 }
 
+body {
+  background-color: wheat !important;
+
+}
+
 nav {
   padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
   justify-content: center;
+  border-bottom: 1px black solid;
+  background-color: #ea967a;
+  align-items: center
 
+}
+
+nav > * {
+  padding: 10px;
 }
 
 #root {
   height: 100%
 }
 
-.dashboard-wrapper {
-  height: 100%
-}
-
-button {
-  font-size: 20px;
+.site-wrapper{
+  margin: auto;
+  width: 70%;
+  
 }
 
 @media (max-width: 600px ) {
-  
-  
   
   nav {
     display: flex;
     flex-direction: column;
   }
 
-  button {
-    font-size: 10px;
+}
+
+@media (min-width: 1400px) {
+  .site-wrapper {
+    width: 70%
   }
+}
+
+h1 {
+  font-family: "DM Serif Display", serif;
 }

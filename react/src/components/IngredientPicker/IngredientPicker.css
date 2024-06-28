@@ -1,4 +1,21 @@
 
+
+/* .ingredient-div:first-child {
+    opacity: 1;
+
+} */
+
+.ingredient-div {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+
+    &:hover {
+        transform: scaleY(1.01);
+    }
+   
+}
+
 .ingredient-button {
     margin: 1px;
     font-size: 1rem;
@@ -6,10 +23,18 @@
 
 .ingredient-div h1 {
     font-size: 1.2rem;
+    text-align: center;
     
 }
 
-.ingredient-button:hover {
+.fake-ingredient-button {
+    font-size: 40px;
+    border-radius: 5%;
+    border: 1px solid white;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.fake-ingredient-button:hover {
     cursor: pointer
 }
 
@@ -22,3 +47,5 @@
 .ingredient-display, .ingredient-display-off {
     font-size: 1.2rem;
 }
+
+

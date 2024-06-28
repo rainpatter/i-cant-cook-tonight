@@ -31,25 +31,25 @@ export default function LoadRecipes({
   return (
     <div className="load-recipes-search-wrapper">
         {chosenIngredients.length != 0 ?
-            <div className="search-text-div">
-      <span>showing your ingredients...</span>
-      </div>:<div className="search-text-div">
-      <span>choose some ingredients</span>
-      </div>}
-      <div className='load-ingredients'>
-        {chosenIngredients.map((ing, idx) => (
-          <div className="load-ingredient-button">
-            <span onClick={() => handleDelete(idx)}>{ing}</span>
-            <button onClick={() => handleDelete(idx)}>x</button>
-          </div>
-          
-        ))}
-      </div>
-      <div className="search-button-wrapper">
-        <Link to='/recipes' onClick={handleClick}>
-            Search for recipes
-        </Link>
+          <div className="search-text-div">
+            <h1>making dinner with</h1>
+          </div> : <div className="search-text-div">
+            <h1>choose something!</h1>
+          </div>}
+        <div className='load-ingredients'>
+          {chosenIngredients.map((ing, idx) => (
+            
+              <button className="load-ingredient-button" onClick={() => handleDelete(idx)}>{ing} x</button>
+     
+
+          ))}
         </div>
-    </div>
+        {chosenIngredients.length != 0 ?
+        
+           <div className="fake-search-button"><Link to='/recipes' onClick={handleClick}>
+          Search for recipes
+        </Link></div>:''}
+        
+      </div>
   );
 }

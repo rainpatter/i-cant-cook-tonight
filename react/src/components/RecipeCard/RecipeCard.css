@@ -1,0 +1,61 @@
+img {
+  width: 80%;
+}
+
+.recipe-cards-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.recipe-card {
+  margin: 40px;
+  overflow: visible;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.recipe-card:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.recipe-card h3 {
+  word-wrap: break-word;
+}
+
+.recipe-card h1 {
+  padding: 20px;
+}
+
+.recipe-info-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+ul li {
+  display: inline;
+}
+
+.used-missing-ingredients-section div {
+  background-color: lightgray;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin: 10px auto;
+  width: 70%;
+}
+
+.recipe-card h4 {
+  margin: 5px;
+  font-size: 1rem;
+  padding: 10px;
+  font-family: "DM Serif Display", serif;
+}
+
+@media (max-width: 1400px) {
+  .recipe-cards-display {
+    display: block;
+  }
+}

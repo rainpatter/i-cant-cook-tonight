@@ -6,7 +6,7 @@ export default function SearchArea({
   chosenIngredients,
   setChosenIngredients,
   allIngredients,
-  setAllIngredients
+  setAllIngredients,
 }) {
   let [text, setText] = useState("");
 
@@ -31,7 +31,7 @@ export default function SearchArea({
     //                         console.log(type.items.filter(listItem => elem.toUpperCase().includes(listItem.toUpperCase())))
     //     }
     // }
-// }
+    // }
     // IN PROGRESS
     // if (input.match("[,s]")) {
     //     let splitString = input.split(/,\s*/)
@@ -43,11 +43,7 @@ export default function SearchArea({
     //             }
     //         }
     //     }
-    }
-   
-  
-
-  
+  }
 
   async function handleClick() {
     let searchIngredients = await analyseQuery(text);
@@ -59,15 +55,13 @@ export default function SearchArea({
 
   return (
     <>
-      <div className="ingredient-form">
-        <label htmlFor="" name="search-ingredients-bar">
-          {" "}
-          Anything else?
-        </label>
-        <textarea
-          onChange={handleChange}
-          name="search-ingredients-bar"
-        >type your ingredients</textarea>
+      
+        <h1>anything missing?</h1>
+        <br />
+        <div className="ingredient-form">
+        <textarea onChange={handleChange} name="search-ingredients-bar">
+          type your ingredients
+        </textarea>
 
         <button onClick={handleClick}>Search for ingredients</button>
       </div>

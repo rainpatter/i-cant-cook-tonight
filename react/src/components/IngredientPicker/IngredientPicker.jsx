@@ -4,6 +4,9 @@ import ingredientData from "../../../public/ingredient_data.json";
 import './IngredientPicker.css'
 import { useEffect } from "react";
 
+import { Button } from '@mantine/core';
+
+
 export default function IngredientPicker({
   chosenIngredients,
   setChosenIngredients,
@@ -37,45 +40,25 @@ export default function IngredientPicker({
     <>
       {allIngredients.map((ingredient) => (
         <>
-          <div className="ingredient-div">
-            <h1>{ingredient.name}</h1>
-            <div className="ingredients-list">
+          <div className="ingredient-div" onMouseEnter={() => handleClick(ingredient.name)} onMouseLeave={() => handleRemove(ingredient.name)}> 
+            <div className="fake-ingredient-button"><h1>{ingredient.name}</h1></div>
+            <div className="ingredients-list" >
               {visible.includes(ingredient.name)
                 ? ingredient.items.map((item) => (
-                    <button
-                      className="ingredient-button"
-                      onClick={() => addIngredient(item)}
-                    >
-                      {item}
-                    </button>
+                  <Button variant="filled" color="gray" size="l"
+                  className="ingredient-button"
+                  onClick={() => addIngredient(item)}
+                >
+                  {item}
+                </Button>
                   ))
-                : ingredient.items.slice(1, 15).map((item) => (
-                    <button
-                      className="ingredient-button"
-                      onClick={() => addIngredient(item)}
-                    >
-                      {item}
-                    </button>
-                  ))}
+                : ''}
             </div>
-            {!visible.includes(ingredient.name) ? (
-              <button
-                className="ingredient-display"
-                onClick={() => handleClick(ingredient.name)}
-              >
-                Display all
-              </button>
-            ) : (
-              <button
-                className="ingredient-display-off"
-                onClick={() => handleRemove(ingredient.name)}
-              >
-                Show fewer
-              </button>
-            )}
+            
           </div>
         </>
       ))}
     </>
+    
   );
 }

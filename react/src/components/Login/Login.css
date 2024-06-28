@@ -1,0 +1,23 @@
+
+
+.login-form > * {
+    padding: 5px
+}
+
+.login-form label {
+    font-family: "DM Serif Display", serif;
+}
+
+.login-form button {
+    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ea967a;
+    color: white;
+    border: none;
+    font-family: "DM Serif Display", serif;
+}
+
+.login-form button:hover {
+    cursor:pointer
+}

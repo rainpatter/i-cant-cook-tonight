@@ -17,7 +17,7 @@
             "Apple", "Banana", "Orange", "Lemon", "Lime", "Grapefruit", "Mango", "Pineapple", "Strawberry", "Blueberry",
             "Raspberry", "Blackberry", "Peach", "Plum", "Cherry", "Pear", "Kiwi", "Cranberry", "Apricot", "Fig"
         ]},
-        {"name": "proteins",
+        {"name": "protein",
         "items":[
             "Chicken", "Beef", "Pork", "Lamb", "Turkey", "Duck", "Fish", "Shrimp", "Salmon", "Tuna",
             "Eggs", "Tofu", "Beans", "Chickpeas", "Lentils"
@@ -27,7 +27,7 @@
         {"name": "pantry",
         "items":[
             "Honey", "Vinegar",
-            "Soy sauce", "Worcestershire sauce", "Tomato paste", "Canned tomatoes", "Broth", "Coconut milk", "Peanut butter",
+            "Soy sauce", "Tomato paste", "Canned tomatoes", "Broth", "Coconut milk", "Peanut butter",
             "Jam", "Mustard", "Mayonnaise", "Ketchup", "Hot sauce", "Pickles", "Olives", "Breadcrumbs",
             "Baking powder", "Baking soda", "Yeast"
     
