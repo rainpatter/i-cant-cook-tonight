@@ -13,9 +13,6 @@ const errorHandler = require("./middlewares/error_handler");
 app.use(express.static("client"));
 app.use(express.json());
 
-app.get("/test", (req, res) => {
-  res.send("test");
-});
 
 app.use(homeRouter);
 app.use(ingredientRouter);
