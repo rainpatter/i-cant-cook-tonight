@@ -1,6 +1,8 @@
 .logout-button {
-    width: 100px;
-    cursor: pointer;
-    color: white;
-    font-family: "DM Serif Display", serif;
+  width: 100px;
+  cursor: pointer;
+  color: white;
+  font-family: "DM Serif Display", serif;
+  padding: 0px;
+  margin: 0;
 }

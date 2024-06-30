@@ -1,14 +1,15 @@
 .ingredient-picker {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+  margin: 0 auto;
 }
 
 @media (max-width: 1100px) {
-    .ingredient-picker {
-        flex-direction: column;
-        width: 50%;
-    }
+  .ingredient-picker {
+    flex-direction: column;
+    width: 50%;
+  }
 }
+

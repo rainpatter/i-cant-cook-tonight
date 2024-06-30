@@ -8,6 +8,7 @@ import { useState } from "react";
 import Logout from "./components/Logout/Logout";
 import { useNavigate } from "react-router-dom";
 import Recipes from "./pages/Recipes/Recipes";
+import Signup from "./pages/Signup/Signup";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,8 +17,7 @@ function App() {
   let [recipes, setRecipes] = useState([]);
   let [chosenIngredients, setChosenIngredients] = useState([]);
   let [currentRecipe, setCurrentRecipe] = useState({});
-  let [ allIngredients, setAllIngredients ] = useState([])
-  
+  let [allIngredients, setAllIngredients] = useState([]);
 
   function onLogin(user) {
     console.log("logging in");
@@ -35,49 +35,65 @@ function App() {
     navigate(`/profile/${userId}`);
   }
 
-  
-
   return (
     <>
       <header>
-        <Header />
-        
+        <Header  setChosenIngredients={setChosenIngredients} setRecipes={setRecipes}/>
       </header>
       <nav>
         {user ? (
           <>
             <>
-              <h3 onClick={handleClick}>saved recipes</h3>
+              <h3 className="profile-header" onClick={handleClick}>saved recipes</h3>
               <Logout onLogout={onLogout} />
             </>
-           
           </>
         ) : (
           <Login onLogin={onLogin} setUserId={setUserId} />
         )}
-       
       </nav>
       <div className="site-wrapper">
         <Routes>
-          <Route path="/" element={<Dashboard userId={userId} user={user} setHasSearched={setHasSearched}
-                  recipes={recipes}
-                  setRecipes={setRecipes}
-                  chosenIngredients={chosenIngredients}
-                  setChosenIngredients={setChosenIngredients}
-                  allIngredients={allIngredients}
-                  setAllIngredients={setAllIngredients} 
-                  hasSearched={hasSearched}/>} />
+          <Route
+            path="/"
+            element={
+              <Dashboard
+                userId={userId}
+                user={user}
+                setHasSearched={setHasSearched}
+                recipes={recipes}
+                setRecipes={setRecipes}
+                chosenIngredients={chosenIngredients}
+                setChosenIngredients={setChosenIngredients}
+                allIngredients={allIngredients}
+                setAllIngredients={setAllIngredients}
+                hasSearched={hasSearched}
+              />
+            }
+          />
           {user && (
             <Route path="/profile/:id" element={<Profile userId={userId} />} />
           )}
-          <Route path="/recipes" element={<Recipes userId={userId} user={user} setHasSearched={setHasSearched}
-            recipes={recipes}
-            setRecipes={setRecipes}
-            setChosenIngredients={setChosenIngredients}
-            currentRecipe={currentRecipe}
-            setCurrentRecipe={setCurrentRecipe}/>}/>
+          <Route
+            path="/recipes"
+            element={
+              <Recipes
+                userId={userId}
+                user={user}
+                setHasSearched={setHasSearched}
+                recipes={recipes}
+                setRecipes={setRecipes}
+                setChosenIngredients={setChosenIngredients}
+                currentRecipe={currentRecipe}
+                setCurrentRecipe={setCurrentRecipe}
+              />
+            }
+          />
+          <Route
+            path="/signup-user" element ={<Signup />}
+          />
         </Routes>
-        </div>
+      </div>
     </>
   );
 }

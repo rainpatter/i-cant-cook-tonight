@@ -1,33 +1,33 @@
-
 .ingredient-form {
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  align-items: center;
 }
 
 .ingredient-form > * {
-    margin: 5px;
-    padding: 5px
+  margin: 5px;
+  padding: 5px;
 }
 
-h1 {
-    text-align: center;
+.search-area h1 {
+  text-align: center;
+  padding-top: 20px
 }
 
 textarea {
-    font-size: 1rem;
-    font-family: sans-serif;
-    color: gray;
-    display: block
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: gray;
+  display: block;
 }
 
 .ingredient-form button {
-    background-color: black;
-    border: white solid 1px;
-    border-radius: 5%;
-    color: white;
-    padding: 15px;
-    font-family: "DM Serif Display", serif;
+  background-color: black;
+  border: white solid 1px;
+  border-radius: 5%;
+  color: white;
+  padding: 15px;
+  font-family: "DM Serif Display", serif;
 }

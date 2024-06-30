@@ -1,76 +1,70 @@
 .load-recipes-search-wrapper {
-    margin: 10px auto;
-    margin-top: 30px;
-    padding: 10px;
-     text-align: center;
-     
-    border: 1px solid black dashed;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+
+  border: 1px solid black dashed;
 }
 .load-recipes-search-wrapper h1 {
-   color: white;
-   font-size: 2rem
+  color: white;
+  font-size: 2rem;
 }
 
 .search-text-div {
-  
-   padding: 10px
+  padding: 10px;
 }
 
 .fake-search-button {
-    background-color: black;
-    margin: 40px auto;
-    width: 300px;
-    padding: 10px;
-    border-radius: 5%;
-    border: 2px solid white;
-    font-family: "DM Serif Display", serif;
+  background-color: black;
+  margin: 40px auto;
+  width: 300px;
+  padding: 10px;
+  border-radius: 5%;
+  border: 2px solid white;
+  font-family: "DM Serif Display", serif;
 }
 .fake-search-button a {
-    padding: 10px;
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
 }
 
-.load-ingredients{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+.load-ingredients {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .load-ingredients > div {
-    padding: 0 5px 0 5px;
+  padding: 0 5px 0 5px;
 }
 
 .load-ingredient-button {
-   
-    padding: 15px;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    background-color: #f39d0c;
-    border-radius: 5%;
-    border: none;
+  padding: 15px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #f39d0c;
+  border-radius: 5%;
+  border: none;
 }
 
 .load-ingredient-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .load-ingredient-button > button {
-    
-    border: none;
-    padding: 5px;
-    display: inline;
+  border: none;
+  padding: 5px;
+  display: inline;
 }
 
 .load-ingredient-button > button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .search-button {
-    font-size: 20px;
+  font-size: 20px;
 }
-
-

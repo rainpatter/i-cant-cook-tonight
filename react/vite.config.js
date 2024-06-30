@@ -8,7 +8,8 @@ export default defineConfig({
     proxy: {
       '/ingredients' : 'http://localhost:4040',
       '/login': 'http://localhost:4040',
-      '/api': 'http://localhost:4040'
+      '/api': 'http://localhost:4040',
+      '/signup': 'http://localhost:4040',
     }
   }
 })

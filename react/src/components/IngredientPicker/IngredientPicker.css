@@ -1,51 +1,44 @@
-
-
 /* .ingredient-div:first-child {
     opacity: 1;
 
 } */
 
 .ingredient-div {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
+  flex: 1;
+  text-align: center;
+  padding: 10px;
 
-    &:hover {
-        transform: scaleY(1.01);
-    }
-   
+  &:hover {
+    transform: scaleY(1.01);
+  }
 }
 
 .ingredient-button {
-    margin: 1px;
-    font-size: 1rem;
+  margin: 1px;
+  font-size: 1rem;
 }
 
 .ingredient-div h1 {
-    font-size: 1.2rem;
-    text-align: center;
-    
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .fake-ingredient-button {
-    font-size: 40px;
-    border-radius: 5%;
-    border: 1px solid white;
-    background-color: rgba(255, 0, 0, 0.2);
+  font-size: 40px;
+  border-radius: 5%;
+  border: 1px solid white;
+  background-color: rgba(255, 0, 0, 0.2);
 }
 
 .fake-ingredient-button:hover {
-    cursor: pointer
+  cursor: pointer;
 }
 
 .ingredient-list {
-    display:flex;
-
+  display: flex;
 }
 
-
-.ingredient-display, .ingredient-display-off {
-    font-size: 1.2rem;
+.ingredient-display,
+.ingredient-display-off {
+  font-size: 1.2rem;
 }
-
-

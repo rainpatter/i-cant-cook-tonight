@@ -1,0 +1,29 @@
+.signup-form {
+    padding-top: 100px;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.signup-form > * {
+    margin: 10px
+}
+
+.signup-form p {
+    display: table-row;
+    padding: 10px;
+}
+
+.signup-form label {
+    display: table-cell;
+}
+
+.signup-form input {
+    display: table-cell;
+    margin: 10px;
+}
+
+.signup-form button {
+    display: table-row;
+    text-align: center
+}

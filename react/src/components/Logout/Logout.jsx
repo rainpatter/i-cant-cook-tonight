@@ -1,15 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import './Logout.css'
+import "./Logout.css";
 
-export default function Logout(props) {
-  const navigate = useNavigate()
-  
+export default function Logout({onLogout}) {
+  const navigate = useNavigate();
+
   function handleClick() {
-    props.onLogout();
-    navigate("/")
+    onLogout();
+    navigate("/");
   }
 
-  return <div>
-    <p className="logout-button"onClick={handleClick}>Logout</p>
-    </div>;
+  return (
+    <div>
+      <p className="logout-button" onClick={handleClick}>
+        Logout
+      </p>
+    </div>
+  );
 }

@@ -15,22 +15,28 @@ export default function Recipes({
 }) {
   let [isShowingSingleRecipe, setShowingRecipe] = useState(false);
 
-  
   console.log(currentRecipe);
 
   return (
     <>
       {!isShowingSingleRecipe ? (
-        <><RecipeCard
-          setHasSearched={setHasSearched}
-          setRecipes={setRecipes}
-          setChosenIngredients={setChosenIngredients}
-          setCurrentRecipe={setCurrentRecipe}
-          recipes={recipes}
-          setShowingRecipe={setShowingRecipe} />
-          </>
+        <>
+          <RecipeCard
+            setHasSearched={setHasSearched}
+            setRecipes={setRecipes}
+            setChosenIngredients={setChosenIngredients}
+            setCurrentRecipe={setCurrentRecipe}
+            recipes={recipes}
+            setShowingRecipe={setShowingRecipe}
+          />
+        </>
       ) : (
-        < SingleRecipe user={user} userId={userId} currentRecipe={currentRecipe} setShowingRecipe={setShowingRecipe}/>
+        <SingleRecipe
+          user={user}
+          userId={userId}
+          currentRecipe={currentRecipe}
+          setShowingRecipe={setShowingRecipe}
+        />
       )}
     </>
   );

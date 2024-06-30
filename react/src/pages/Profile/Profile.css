@@ -1,9 +1,32 @@
+.user-recipes {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .user-recipe-card {
-    margin: 40px;
-    overflow:visible;
-    background-color: white;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    text-align: center;
- 
-    padding: 100px
+  margin: 40px;
+  overflow: visible;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  text-align: center;
+  padding: 50px;
+}
+
+.user-recipes .ingredient-form {
+  margin-top: 40px;
+}
+
+.user-recipe-card img {
+  width: 100%
+}
+
+@media (max-width: 600px) {
+  
+  .user-recipes {
+    width: 100%
+  }
+
+  .user-recipes h1 {
+    font-size: 1.01rem
+  }
 }
